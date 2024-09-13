@@ -18,8 +18,6 @@ end
 % skecth A and b in us
 switch us 
     case 'half' 
-        % scaling
-        G = (1/sqrt(s))*randn(s,m);
         opt.format = 'h';
         chop([],opt)
         Y = zeros(s,n);
@@ -61,5 +59,4 @@ switch uqr
         [Q,R] = qr(Y,"econ");
         x = R\(Q'*Gb);
 end
-
 
