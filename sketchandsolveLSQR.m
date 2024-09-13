@@ -17,8 +17,9 @@ function results_str = ...
      results_str.norm_pinv_ARinv(ind) = 1/svds(ARinv,1,'smallest');
 
      % initial solve via LSQR
-    [x,~,~,lsqrit] = lsqr(A,b,lsqrtol,lsqritmax,R,[],x0);
+    [x,flag,~,lsqrit] = lsqr(A,b,lsqrtol,lsqritmax,R,[],x0);
 
+    results_str.lsqrflag(ind) = flag;
     results_str.lsqrit(ind) = lsqrit;
 
     r = b - A*x;
